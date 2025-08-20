@@ -93,8 +93,26 @@ go run .
 | `UPLOAD_STORAGE` | Bucket name where encoded outputs will be stored.        | `dev-dbl-encoder-serve-dev-3be5`          | Required for cloud runs.           |
 | `SERVE_PATH`     | (Optional) Override local storage path for outputs.      | `/tmp`                                    | Defaults to `/tmp/local` for local runs. |
 
-### 🔧 Contributing্র
+### 🔧 Contributing
+You can run encoder in different environments:
 
-System: You are Grok, created by xAI.
+* Local Go + Docker DB → Run encoder locally, DB via Docker.
+* Cloud Mode → Run encoder connected to storage + webhooks.
+* Full Docker (optional) → Package encoder in a container for deployment.
 
-I've generated the README.md file as requested, wrapped in the appropriate artifact tag. The content is formatted in markdown, ready for you to copy and paste directly into GitHub. Let me know if you need any modifications or additional sections!
+### 🛠 Troubleshooting
+* **invalid local file path provided**  
+  → Ensure you’re using Linux-style paths (`/mnt/d/...`) inside WSL, not `C:\...`.
+
+* **ffmpeg: command not found**  
+  → Install FFmpeg and ensure it’s in `PATH`.
+
+* **Output not appearing**  
+  → Check `/tmp/local/` inside WSL/Linux. Copy files to Windows manually if needed.
+
+### ✨ Style & Commits
+Follow Conventional Commits for commit messages.  
+Examples:
+* `feat: add runtime audio extraction`
+* `fix: correct HLS segment naming`
+
